@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    
+  <script
+	src="https://cdn.jsdelivr.net/gh/xTracky/static@latest/utm-handler.js"
+	data-token="86d80135-7cdc-4f0a-976a-2b8f65e55bde"
+>
+</script>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FR</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+        }
+        .bg-custom-red {
+            background-color: #c00000;
+        }
+        .bg-custom-green {
+            background-color: #25d366;
+        }
+        .text-custom-green {
+            color: #25d366;
+        }
+        .btn-glow {
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.5);
+        }
+        .step-box {
+            border-radius: 12px;
+            aspect-ratio: 1 / 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 1rem;
+            font-weight: 700;
+            font-size: 0.85rem;
+            line-height: 1.2;
+            position: relative;
+        }
+        .step-number {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #25d366;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            border: 2px solid white;
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center min-h-screen">
+
+    <!-- Header -->
+    <header class="w-full bg-custom-red py-6 px-4 text-center">
+        <h1 class="text-white text-xl md:text-2xl font-black uppercase tracking-tight max-w-2xl mx-auto">
+            ACCÉDEZ IMMÉDIATEMENT AUX RÉPONSES DONT VOUS AVEZ BESOIN.
+        </h1>
+    </header>
+
+    <!-- Subheader -->
+    <section class="w-full py-8 px-4 text-center">
+        <h2 class="text-custom-green text-lg md:text-xl font-bold uppercase tracking-wide max-w-xl mx-auto">
+            CELA FONCTIONNE EN SEULEMENT 3 ÉTAPES SIMPLES ET RAPIDES.
+        </h2>
+    </section>
+
+    <!-- Steps -->
+    <section class="w-full max-w-4xl px-4 py-4">
+        <div class="grid grid-cols-3 gap-4 md:gap-8">
+            <!-- Step 1 -->
+            <div class="flex flex-col items-center">
+                <div class="step-box bg-custom-green text-white w-full">
+                    <div class="step-number">1</div>
+                    <span>ENTREZ LE NUMÉRO QUE VOUS SOUHAITEZ SURVEILLER</span>
+                </div>
+                <div class="mt-4 text-custom-green">
+                    <i data-lucide="search" class="w-8 h-8"></i>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="flex flex-col items-center">
+                <div class="step-box bg-custom-green text-white w-full">
+                    <div class="step-number">2</div>
+                    <span>ATTENDEZ QUE LES CONVERSATIONS SE CHARGENT</span>
+                </div>
+                <div class="mt-4 text-custom-green">
+                    <i data-lucide="smartphone" class="w-8 h-8"></i>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="flex flex-col items-center">
+                <div class="step-box bg-custom-green text-white w-full">
+                    <div class="step-number">3</div>
+                    <span>ACCÉDEZ AUX CONVERSATIONS PRIVÉES</span>
+                </div>
+                <div class="mt-4 text-custom-green">
+                    <i data-lucide="unlock" class="w-8 h-8"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Button -->
+    <section class="w-full max-w-md px-4 py-12">
+        <a href="https://choixsur.site/001/" class="w-full bg-custom-green text-white font-black py-4 px-6 rounded-full text-lg uppercase flex items-center justify-center gap-2 btn-glow transition-transform hover:scale-105 no-underline">
+            👉 JE VEUX SURVEILLER MAINTENANT
+        </a>
+    </section>
+
+    <!-- App Stores -->
+    <section class="w-full flex justify-center gap-4 py-8">
+        <a href="#" class="block w-32 md:w-40">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Télécharger dans l'App Store">
+        </a>
+        <a href="#" class="block w-32 md:w-40">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Disponible sur Google Play">
+        </a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="w-full py-12 text-center text-gray-500 text-sm">
+        <p class="mb-4">© 2026 Tous droits réservés.</p>
+        <div class="flex justify-center gap-2">
+            <a href="#" class="underline">Politique de confidentialité</a>
+            <span>|</span>
+            <a href="#" class="underline">Conditions d'utilisation</a>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
