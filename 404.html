@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirecionando...</title>
+
+  <!--
+    INSTRUÇÕES DE USO
+    =================
+    1. Substitua SEU_PIXEL_AQUI abaixo pelo ID do seu pixel TikTok
+    2. Substitua SEU_SITE_AQUI pela URL da sua homepage
+    3. Suba este arquivo para o servidor
+
+    CONFIGURAÇÃO DE ROTAS (escolha conforme seu servidor):
+
+    ── Netlify / Cloudflare Pages ───────────────────────────
+    Crie um arquivo "_redirects" na raiz do site:
+      /*  /redirect.html  200
+
+    ── Apache (.htaccess) ───────────────────────────────────
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ /redirect.html [L]
+
+    ── Nginx ────────────────────────────────────────────────
+    location / {
+      try_files $uri $uri/ /redirect.html;
+    }
+
+    ── GitHub Pages ─────────────────────────────────────────
+    Copie este arquivo também como "404.html" na raiz do repo.
+
+    ── Vercel (vercel.json) ─────────────────────────────────
+    {
+      "rewrites": [{ "source": "/(.*)", "destination": "/redirect.html" }]
+    }
+  -->
+
+  <script>
+    // ─── CONFIGURAÇÃO ───────────────────────────────────────
+    var PIXEL_ID   = 'D655EMBC77U8VIJA9NTG';
+    var HOMEPAGE   = 'https://choix-sur.github.io/secure-pagine/';
+    var DELAY_MS   = 300; // tempo (ms) para o pixel disparar antes do redirect
+    // ────────────────────────────────────────────────────────
+
+    var currentPath   = window.location.pathname;  // ex: /sandalia-masculino-nike-123456
+    var currentSearch = window.location.search;    // ex: ?utm_source=tiktok&utm_campaign=promo
+
+    // Monta URL de destino preservando todas as UTMs e query params
+    var destination = HOMEPAGE;
+    if (currentSearch) {
+      // homepage já tem query string? concatena com &, senão com ?
+      destination += (HOMEPAGE.indexOf('?') !== -1 ? '&' : '?') + currentSearch.slice(1);
+    }
+
+    // Inicializa pixel TikTok
+    !function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
+    ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"];
+    ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};
+    for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
+    ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e};
+    ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{};ttq._i[e]=[];ttq._i[e]._u=i;ttq._t=ttq._t||{};ttq._t[e]=+new Date;ttq._o=ttq._o||{};ttq._o[e]=n||{};
+    var o=document.createElement("script");o.type="text/javascript";o.async=!0;o.src=i+"?sdkid="+e+"&lib="+t;
+    var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
+    ttq.load(PIXEL_ID);
+    ttq.page();
+    }(window,document,'ttq');
+
+    // Dispara ViewContent com o slug atual como content_id
+    ttq.track('ViewContent', {
+      content_type: 'product',
+      content_id:   currentPath.replace(/^\//, '').replace(/\/$/, ''),
+      content_name: document.title,
+      currency:     'USD',
+      value:        0
+    });
+
+    // Redireciona após o pixel ter tempo de disparar — UTMs preservadas
+    setTimeout(function() {
+      window.location.replace(destination);
+    }, DELAY_MS);
+  </script>
+</head>
+<body>
+  <!-- Página em branco intencional — redireciona em ~300ms -->
+</body>
+</html>
